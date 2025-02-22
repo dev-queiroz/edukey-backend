@@ -17,7 +17,7 @@ export class AIService {
         score: result.score || 85,
         feedback: result.feedback || "Bom trabalho, mas revise a gramática.",
       };
-    } catch (error) {
+    } catch (error: Error | any) {
       Logger.error("Erro ao corrigir prova com Ollama", error);
       throw error;
     }
@@ -38,7 +38,7 @@ export class AIService {
       });
       const result = response.data.response.split("\n").filter((q: string) => q.trim());
       return result.length ? result : ["Questão padrão"];
-    } catch (error) {
+    } catch (error: Error | any) {
       Logger.error("Erro ao gerar questões com Ollama", error);
       throw error;
     }
@@ -53,7 +53,7 @@ export class AIService {
         max_tokens: 300,
       });
       return response.data.response || "Desculpe, não entendi sua dvida.";
-    } catch (error) {
+    } catch (error: Error | any) {
       Logger.error("Erro ao responder chat com Ollama", error);
       throw error;
     }
@@ -72,7 +72,7 @@ export class AIService {
         isPlagiarized: result.isPlagiarized || false,
         source: result.source || undefined,
       };
-    } catch (error) {
+    } catch (error: Error | any) {
       Logger.error("Erro ao verificar plágio com Ollama", error);
       throw error;
     }
@@ -87,7 +87,7 @@ export class AIService {
         max_tokens: 500,
       });
       return response.data.response || "Resumo padrão";
-    } catch (error) {
+    } catch (error: Error | any) {
       Logger.error("Erro ao gerar material com Ollama", error);
       throw error;
     }

@@ -13,7 +13,7 @@ export class NotificationService {
 
             if (error) throw error;
             return data as Notification;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao enviar notificação", error);
             throw error;
         }

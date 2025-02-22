@@ -11,7 +11,7 @@ export const sendNotification = async (req: Request, res: Response) => {
 
         const notification = await notificationService.sendNotification(userId, message);
         res.status(201).json(notification);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de notificações", error);
         res.status(500).json({ error: "Erro ao enviar notificação" });
     }

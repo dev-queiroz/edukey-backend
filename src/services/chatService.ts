@@ -15,7 +15,7 @@ export class ChatService {
 
             if (error) throw error;
             return data as ChatMessage;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao processar mensagem do chat", error);
             throw error;
         }

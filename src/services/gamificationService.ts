@@ -13,7 +13,7 @@ export class GamificationService {
 
             if (error) throw error;
             return data as Score;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao atualizar pontuação", error);
             throw error;
         }

@@ -53,7 +53,7 @@ export class LessonPlanService {
                 .getPublicUrl(pdfFileName);
 
             return { lessonPlan, pdfUrl: publicUrlData.publicUrl };
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao gerar plano de aula", error);
             throw error;
         }

@@ -15,7 +15,7 @@ export class MaterialService {
 
             if (error) throw error;
             return data as StudyMaterial;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao gerar resumo", error);
             throw error;
         }

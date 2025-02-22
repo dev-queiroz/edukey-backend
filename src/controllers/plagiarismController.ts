@@ -11,7 +11,7 @@ export const checkPlagiarism = async (req: Request, res: Response) => {
 
         const response = await plagiarismService.checkPlagiarism(studentId, content);
         res.status(200).json(response);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de plágio", error);
         res.status(500).json({ error: "Erro ao verificar plágio" });
     }

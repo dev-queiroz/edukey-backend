@@ -11,7 +11,7 @@ export const getPerformance = async (req: Request, res: Response) => {
 
         const report = await performanceService.getPerformance(studentId);
         res.status(200).json(report);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de desempenho", error);
         res.status(500).json({ error: "Erro ao gerar relatório de desempenho" });
     }

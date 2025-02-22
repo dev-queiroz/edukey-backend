@@ -21,7 +21,7 @@ export class PerformanceService {
 
             const averageScore = totalScore / (data.length || 1);
             return { studentId, topics, averageScore };
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao gerar relatório de desempenho", error);
             throw error;
         }

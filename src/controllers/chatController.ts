@@ -11,7 +11,7 @@ export const getChatResponse = async (req: Request, res: Response) => {
 
         const response = await chatService.getResponse(studentId, question, context);
         res.status(200).json(response);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de chat", error);
         res.status(500).json({ error: "Erro ao processar mensagem do chat" });
     }

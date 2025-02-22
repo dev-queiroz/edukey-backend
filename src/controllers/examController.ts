@@ -11,7 +11,7 @@ export const correctExam = async (req: Request, res: Response) => {
 
         const correction = await examService.correctExam(file, studentId, examId);
         res.status(200).json(correction);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de correção de provas", error);
         res.status(500).json({ error: "Erro ao corrigir prova" });
     }

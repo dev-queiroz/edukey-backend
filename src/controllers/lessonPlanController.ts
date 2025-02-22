@@ -14,7 +14,7 @@ export const generateLessonPlan = async (req: Request, res: Response) => {
             lessonPlan: result.lessonPlan,
             pdfUrl: result.pdfUrl,
         });
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de plano de aula", error);
         res.status(500).json({ error: "Erro ao gerar plano de aula" });
     }

@@ -29,7 +29,7 @@ export class QuestionService {
 
             if (error) throw error;
             return data as Question[];
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao gerar questões", error);
             throw error;
         }

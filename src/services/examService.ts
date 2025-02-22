@@ -18,7 +18,7 @@ export class ExamService {
 
             if (error) throw error;
             return data as Correction;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao corrigir prova", error);
             throw error;
         }

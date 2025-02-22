@@ -11,7 +11,7 @@ export const generateQuestions = async (req: Request, res: Response) => {
 
         const questions = await questionService.generateQuestions(material, type, difficulty, count, createdBy);
         res.status(200).json(questions);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de geração de questões", error);
         res.status(500).json({ error: "Erro ao gerar questões" });
     }

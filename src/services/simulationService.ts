@@ -13,7 +13,7 @@ export class SimulationService {
 
             if (error) throw error;
             return data as Simulation;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao criar simulação", error);
             throw error;
         }

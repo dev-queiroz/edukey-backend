@@ -11,7 +11,7 @@ export const generateMaterial = async (req: Request, res: Response) => {
 
         const material = await materialService.generateSummary(content);
         res.status(201).json(material);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de materiais", error);
         res.status(500).json({ error: "Erro ao gerar material" });
     }

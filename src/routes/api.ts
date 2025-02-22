@@ -5,7 +5,6 @@ import { generateQuestions } from "../controllers/questionController";
 import { createSimulation } from "../controllers/simulationController";
 import { getChatResponse } from "../controllers/chatController";
 import { updateScore } from "../controllers/gamificationController";
-import { shareQuestion } from "../controllers/collaborativeController";
 import { checkPlagiarism } from "../controllers/plagiarismController";
 import { generateLessonPlan } from "../controllers/lessonPlanController";
 import { generateAccessibleContent } from "../controllers/accessibilityController";
@@ -34,9 +33,6 @@ router.post("/chat", getChatResponse);
 
 // Gamificacao
 router.post("/update-score", updateScore);
-
-// Banco de Questcaes Colaborativo
-router.post("/share-question", shareQuestion);
 
 // Deteccao de Plcagio
 router.post("/check-plagiarism", checkPlagiarism);

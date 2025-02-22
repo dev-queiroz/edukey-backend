@@ -15,7 +15,7 @@ export class AccessibilityService {
 
             if (error) throw error;
             return data as AccessibleContent;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao gerar áudio", error);
             throw error;
         }

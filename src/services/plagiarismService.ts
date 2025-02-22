@@ -15,7 +15,7 @@ export class PlagiarismService {
 
             if (error) throw error;
             return data as StudentResponse;
-        } catch (error) {
+        } catch (error: Error | any) {
             Logger.error("Erro ao verificar plágio", error);
             throw error;
         }

@@ -11,7 +11,7 @@ export const createSimulation = async (req: Request, res: Response) => {
 
         const simulation = await simulationService.createSimulation(studentId, questionIds);
         res.status(201).json(simulation);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de simulação", error);
         res.status(500).json({ error: "Erro ao criar simulado" });
     }

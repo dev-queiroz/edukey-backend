@@ -11,7 +11,7 @@ export const generateAccessibleContent = async (req: Request, res: Response) => 
 
         const content = await accessibilityService.generateAudio(text, originalId);
         res.status(201).json(content);
-    } catch (error) {
+    } catch (error: Error | any) {
         Logger.error("Erro no controlador de acessibilidade", error);
         res.status(500).json({ error: "Erro ao gerar conteúdo acessível" });
     }
